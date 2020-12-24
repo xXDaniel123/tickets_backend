@@ -1,0 +1,23 @@
+type Ticket {
+  id: ID!
+  name: String!
+  price: Int!
+  description: String!
+}
+
+type TicketInput {
+  name: String!
+  price: Int!
+  description: String!
+}
+
+type Query {
+  tickets: [Ticket]!
+  ticketById(id: ID!): Ticket
+}
+
+type Mutation {
+  createTicket(name: String!, price: Int!, description: String!): [Ticket]
+  updateTicket(name: String!, price: Int!, description: String!, id: ID!): Ticket
+  removeTicket(id: ID!): [Ticket]!
+}
